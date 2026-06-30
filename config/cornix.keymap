@@ -132,6 +132,25 @@
             tapping-term-ms = <HM_TAPPING_TERM>;
             quick-tap-ms = <200>;
         };
+
+        // 左右共通のレイヤーキー設定
+        lt_thumb: layer_tap_thumb {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LAYER_TAP_THUMB";
+            #binding-cells = <2>;
+            
+            // 判定時間。左右共通でご自身の感覚に合う数値（150〜200あたり）
+            tapping-term-ms = <HM_TAPPING_TERM>;
+            #tapping-term-ms = <175>;  
+            
+            // 連続タップ時の強制タップ化を無効化
+            quick-tap-ms = <0>;       
+            
+            // QMKのHOLD_ON_OTHER_KEY_PRESS相当。他のキーが押されたら即レイヤー化
+            flavor = "hold-preferred"; 
+            
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     conditional_layers {
