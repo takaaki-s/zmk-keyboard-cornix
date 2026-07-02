@@ -10,6 +10,8 @@ manifest:
       url-base: https://github.com/urob
     - name: janpfischer
       url-base: https://github.com/janpfischer
+    - name: takaaki-s
+      url-base: https://github.com/takaaki-s
   projects:
     - name: zmk
       remote: zmkfirmware
@@ -21,10 +23,12 @@ manifest:
       remote: urob
       revision: main
       clone-depth: 1
-    # - name: zmk-rgbled-widget
-    #   remote: hitsmaxft
-    #   revision: main
-    #   clone-depth: 1
+    # Fork of hitsmaxft/zmk-rgbled-widget with the Zephyr 3.5+ LED strip fix
+    # (Kconfig no longer forces the deprecated WS2812_STRIP symbol).
+    - name: zmk-rgbled-widget
+      remote: takaaki-s
+      revision: fix/led-strip-zephyr35
+      clone-depth: 1
     - name: zmk-dongle-display
       remote: englmaxi
       revision: main
